@@ -14,7 +14,7 @@ from editorconfig_prettify import Prettifier
 from editorconfig_prettify.languages import JavaScriptPrettifier
 
 
-class TestEditorconfig_prettify(unittest.TestCase):
+class TestEditorconfigPrettify(unittest.TestCase):
 
     def setUp(self):
         self.prettifier = Prettifier('fixtures/test.js')
