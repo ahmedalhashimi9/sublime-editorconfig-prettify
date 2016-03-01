@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-import os
 from functools import wraps
 
 from editorconfig import get_properties, EditorConfigError
@@ -7,14 +6,13 @@ from editorconfig import get_properties, EditorConfigError
 
 class Prettifier(object):
 
-    def __init__(self, file, options=None):
+    def __init__(self, path_to_file, options=None):
         if options is None:
             self.options = {}
         else:
             self.options = options
 
-        cwd = os.path.dirname(os.path.realpath(__file__))
-        self.path_to_file = os.path.join(cwd, file)
+        self.path_to_file = path_to_file
 
     def prettify(self):
         raise NotImplementedError('Subclasses need to implement this method')

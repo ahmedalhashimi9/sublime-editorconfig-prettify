@@ -10,3 +10,4 @@ class JavaScriptPrettifier(Prettifier):
         res = jsbeautifier.beautify_file(self.path_to_file, opts)
 
         print(res)
+        return True
