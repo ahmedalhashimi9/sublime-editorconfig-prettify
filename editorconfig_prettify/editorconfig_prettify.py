@@ -7,6 +7,8 @@ from editorconfig import get_properties, EditorConfigError
 class Prettifier(object):
 
     def __init__(self, path_to_file, options=None):
+        self._registry = {}
+
         if options is None:
             self.options = {}
         else:
@@ -26,10 +28,10 @@ class Prettifier(object):
 
         return self._config
 
-
-def register(func):
-    @wraps(func)
-    def func_wrapper(*args, **kwargs):
-        print('Registered {0}'.format(func.__name__))
-        return True
-    return func_wrapper
+    @classmethod
+    def register(cls, func):
+        @wraps(func)
+        def func_wrapper(*args, **kwargs):
+            print('Registered {0}'.format(func.__name__))
+            return True
+        return func_wrapper
