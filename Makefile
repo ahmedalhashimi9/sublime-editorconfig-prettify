@@ -46,7 +46,7 @@ clean-test:
 	rm -fr htmlcov/
 
 lint:
-	flake8 editorconfig-prettify.py tests
+	flake8 editorconfig_prettify tests
 
 test:
 	python setup.py test
@@ -55,15 +55,15 @@ test-all:
 	tox
 
 coverage:
-	coverage run --source editorconfig-prettify.py setup.py test
+	coverage run --source editorconfig_prettify setup.py test
 	coverage report -m
 	coverage html
 	$(BROWSER) htmlcov/index.html
 
 docs:
-	rm -f docs/editorconfig-prettify.py.rst
+	rm -f docs/editorconfig_prettify.rst
 	rm -f docs/modules.rst
-	sphinx-apidoc -o docs/ editorconfig-prettify.py
+	sphinx-apidoc -o docs/ editorconfig_prettify
 	$(MAKE) -C docs clean
 	$(MAKE) -C docs html
 	$(BROWSER) docs/_build/html/index.html
